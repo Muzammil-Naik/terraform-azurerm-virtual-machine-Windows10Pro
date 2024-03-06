@@ -14,6 +14,10 @@ output "vnet_address_space" {
   description = "The Address space of newly created Virtual Network"
   value       = var.vnet_Address_Space
 }
+output "vnet_tags" {
+  description = "Virtual Network Tags"
+  value       = azurerm_windows_virtual_machine.vm.tags
+}
 output "snet_address_prefixes" {
   description = "The Address Prefix of Newly Created Subnet"
   value       = var.address_prefixes
@@ -26,6 +30,10 @@ output "nsg_name" {
   description = "The name of newly creaated NSG"
   value       = var.NSG_name
 }
+output "nsg_tags" {
+  description = "Tags of Network security group"
+  value       = azurerm_network_security_group.nsg.tags
+}
 output "port_numbers" {
   description = "The Port numbers used in Network Security Rule"
   value       = var.NSG_Rule
@@ -34,9 +42,17 @@ output "pip" {
   description = "The Newly Created Public IP"
   value       = azurerm_public_ip.pip.id
 }
+output "PIP_tags" {
+  description = "Tags of Public IP Address"
+  value       = azurerm_public_ip.pip.ip_tags
+}
 output "nic_name" {
   description = "The Newly Created Network Interface Card Name"
   value       = var.NIC_Name
+}
+output "NIC_tags" {
+  description = "Network Interface Card Tags"
+  value       = azurerm_network_interface.nic.tags
 }
 output "vm_name" {
   description = "The Newly created Virtual Machine Name"
@@ -49,4 +65,8 @@ output "vm_size" {
 output "vm_username" {
   description = "The Username of Newly created Virtual MAchine"
   value       = azurerm_windows_virtual_machine.vm.admin_username
+}
+output "vm_tags" {
+  description = "Virtual Machine tags"
+  value       = azurerm_windows_virtual_machine.vm.tags
 }
